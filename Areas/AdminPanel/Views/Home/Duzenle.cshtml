@@ -1,0 +1,39 @@
+﻿@model Ogrenci
+
+<h1>Öğrenci Güncelle</h1>
+
+<div class="row">
+    <div class="col-6">
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="OgrenciId"/>
+            <div class="m-2">
+                <label asp-for="OgrenciAd">Öğrenci Adı</label>
+                <input asp-for="OgrenciAd" type="text" class="form-control" />
+                <span asp-validation-for="OgrenciAd"></span>
+            </div>
+            <div class="m-2">
+                <label asp-for="OgrenciSoyad">Öğrenci Soyadı</label>
+                <input asp-for="OgrenciSoyad" type="text" class="form-control" />
+                <span asp-validation-for="OgrenciSoyad"></span>
+            </div>
+            <div class="m-2">
+                <label asp-for="OgrenciNo">Öğrenci Numarası</label>
+                <input asp-for="OgrenciNo" type="text" class="form-control" />
+                <span asp-validation-for="OgrenciNo"></span>
+            </div>
+            <div class="m-2">
+                <label asp-for="FakulteAdi">Fakülte Adı</label>
+                <input asp-for="FakulteAdi" type="text" class="form-control" />
+                <span asp-validation-for="FakulteAdi"></span>
+            </div>
+            <div class="m-2">
+                <label asp-for="BolumAdi">Bölüm Adı</label>
+                <input asp-for="BolumAdi" type="text" class="form-control" />
+                <span asp-validation-for="BolumAdi"></span>
+            </div>
+           
+            <button class="btn btn-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

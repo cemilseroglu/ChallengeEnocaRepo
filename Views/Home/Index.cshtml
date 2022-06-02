@@ -1,0 +1,18 @@
+﻿@model Kullanici
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<form method="post" asp-action="Index" asp-controller="Home" class="text-center">
+  <div class="mb-3 text-center" style="top:50%; left:50%" >
+      <h1>Admin Panel Giriş</h1>
+    <label class="form-label align-center">Kullanıcı Adı</label>
+    <input asp-for="KullaniciAdi" type="text" class="form-control w-50 m-auto">
+  </div>
+  <div class="mb-3 text-center allign-center">
+    <label class="form-label">Şifre</label>
+    <input asp-for="Sifre" type="password" class="form-control w-50 m-auto">
+  </div>
+  <button class="btn btn-primary d-flex justify-content-center" style="margin:auto;">Giriş yap</button>
+  <span>@ViewBag.Hata</span>
+</form>

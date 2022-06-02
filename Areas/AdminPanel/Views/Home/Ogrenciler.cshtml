@@ -1,0 +1,37 @@
+﻿@model List<Ogrenci>
+
+<h1>Öğrenci Listesi</h1>
+<a class="btn btn-primary" asp-controller="Home" asp-action="Yeni">Yeni Öğrenci Ekle</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Öğrenci Numarası</th>
+            <th>Öğrenci Adı</th>
+            <th>Öğrenci Soyadı</th>
+            <th>Fakülte Adı</th>
+            <th>Bölümü</th>
+            <th>Güncelle/Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OgrenciNo</td>
+                <td>@item.OgrenciAd</td>
+                <td>@item.OgrenciSoyad</td>
+                <td>@item.FakulteAdi</td>
+                <td>@item.BolumAdi</td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Home" asp-action="Duzenle" asp-route-id="@item.OgrenciId" >Güncelle</a>
+
+                    <form asp-controller="Home" asp-action="Sil" method="post" onsubmit=" return confirm('Silmek istediğinizden emin misiniz?')">
+                        <input type="hidden" name="id" value="@item.OgrenciId" />
+                        <button class="btn btn-danger">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
