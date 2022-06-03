@@ -1,4 +1,5 @@
 ﻿using Enoca.NET_Challenge.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -33,8 +34,11 @@ namespace Enoca.NET_Challenge.Controllers
                 ViewBag.Hata = "Böyle bir kullanıcı yok.Lütfen tekrar deneyin!";
             else
             {
-                if(kullanici.KullaniciAdi == k.KullaniciAdi && kullanici.Sifre == k.Sifre)
-                return RedirectToAction("Index", "Home", new { area = "AdminPanel" });
+                if (kullanici.KullaniciAdi == k.KullaniciAdi && kullanici.Sifre == k.Sifre)
+                {
+                    HttpContext.Session.SetString("KullaniciAdi", kullanici.KullaniciAdi);
+                    return RedirectToAction("Index", "Home", new { area = "AdminPanel" });
+                }
                 else
                 {
                     ViewBag.Hata = "Kullanıcı adını veya şifreyi yanlış girdiniz...Lütfen tekrar deneyiniz.";

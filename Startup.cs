@@ -25,7 +25,9 @@ namespace Enoca.NET_Challenge
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EnocaAppDbContext>(ob => ob.UseSqlServer(Configuration.GetConnectionString("conn")));
+            services.AddSession();
             services.AddControllersWithViews();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,7 @@ namespace Enoca.NET_Challenge
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();

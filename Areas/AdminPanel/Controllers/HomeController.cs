@@ -1,4 +1,5 @@
-﻿using Enoca.NET_Challenge.Models;
+﻿using Enoca.NET_Challenge.Filters;
+using Enoca.NET_Challenge.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 namespace Enoca.NET_Challenge.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Login]
     public class HomeController : Controller
     {
         private readonly EnocaAppDbContext _db;
